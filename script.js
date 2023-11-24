@@ -8,29 +8,36 @@ $(window).on("load", function () {
     var randomColor1 = Math.random() * 255;
     var randomColor2 = Math.random() * 255;
     var randomColor3 = Math.random() * 255;
+    var shadowColor =
+      "rgb(" +
+      Math.floor(randomColor1) +
+      ", " +
+      Math.floor(randomColor2) +
+      ", " +
+      Math.floor(randomColor3) +
+      ")";
 
     // Create a new ball element and append it to the body
     $("<div class='ball'></div>")
       .appendTo(".game")
       .css({
         left: randomX + "px",
-        backgroundColor:
-          "rgb(" +
-          Math.floor(randomColor1) +
-          ", " +
-          Math.floor(randomColor2) +
-          ", " +
-          Math.floor(randomColor3) +
-          ")",
+        backgroundColor: shadowColor,
+        boxShadow: "0 0 50px 30px " + shadowColor,
       });
 
     // Check if count is greater than or equal to 5 and adjust the width
     if (count >= 5) {
-      $(".ball").css("animation", "move2 2s linear infinite");
+      $(".ball").css(
+        "animation",
+        "move 1s linear infinite,  shineBorder 2s linear infinite"
+      );
     }
     if (count >= 10) {
-      $(".ball").css("animation", "move2 1s linear infinite");
-      $("body").css("background-color", "green");
+      $(".ball").css(
+        "animation",
+        "move 0.7s linear infinite, shineBorder 1s linear infinite"
+      );
     }
   }, 1000);
 
@@ -56,7 +63,7 @@ $(window).on("load", function () {
     // Hide the ball after 300 milliseconds
     setTimeout(function () {
       ball.css("display", "none");
-    }, 50);
+    }, 100);
 
     count++;
 
@@ -77,6 +84,7 @@ $(window).on("load", function () {
       }
     }, 200);
   }, 20000);
+  //time control
   setInterval(function () {
     $(".timesheet").css("left", "-=5px");
   }, 100);
