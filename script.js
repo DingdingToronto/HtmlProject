@@ -74,18 +74,29 @@ $(window).on("load", function () {
   setTimeout(function () {
     $(".game").css("display", "none");
     setTimeout(function () {
-      var restart = confirm(
-        "Time is over. Your final score is: " +
-          count +
-          " Do you wanna play again?"
+      $(".result").html(
+        "<div>Time is over. Your score is : " + count + "</div>"
       );
-      if (restart) {
-        location.reload();
-      }
+      $(".result").fadeIn(2000);
+      $(".result").css("display", "block");
+      setTimeout(function () {
+        $(".button").fadeIn(1000);
+      }, 1000);
     }, 200);
   }, 20000);
   //time control
   setInterval(function () {
     $(".timesheet").css("left", "-=5px");
   }, 100);
+  $(".button").on("click", function () {
+    location.reload();
+  });
+  setTimeout(function () {
+    $(".timesheet").css("backgroundColor", "#f39c12");
+  }, 10000);
+  setTimeout(function () {
+    $(".timesheet").css("backgroundColor", "#e74c3c");
+    $(".time").css("border", "2px solid #ff0000");
+    $(".time").css("animation", "blink 0.5s infinite");
+  }, 15000);
 });

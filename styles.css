@@ -1,7 +1,10 @@
 body {
   background-color: black;
 }
-
+.nonGame {
+  position: absolute;
+  left: -10vh;
+}
 .ball {
   height: 200px;
   width: 200px;
@@ -12,32 +15,42 @@ body {
   animation: move 2s linear infinite, shineBorder 2s linear infinite; /* Multiple animations */
 }
 
+/* .time styles */
 .time {
   display: inline-block;
   width: 1000px;
   height: 20px;
-  background-color: white;
+  background-color: #f5f5f5; /* Light gray background */
   overflow: hidden;
-  position: relative; /* Added position property */
-  top: 5vh;
+  position: relative;
+  top: 7vh;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft box shadow */
 }
 
+/* .timesheet styles */
 .timesheet {
   width: 1000px;
   height: 20px;
-  background-color: red;
-  position: relative; /* Added position property */
+  background-color: #2ecc71; /* Light red background */
+  position: relative;
+  border-radius: 10px; /* Rounded corners */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft box shadow */
 }
 
+/* .score styles */
 .score {
   display: inline;
   width: 1000px;
   height: 100px;
-  margin-right: 100px;
+  margin-left: 100px;
   position: relative;
-  color: white;
-  font-size: larger;
+  color: #ffffff; /* White text color */
+  font-size: 2em; /* Larger font size */
+  font-family: "Helvetica Neue", sans-serif; /* Example font family */
+  font-weight: bold; /* Bold text */
   left: 45%;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow for better readability */
 }
 
 @keyframes move {
@@ -48,6 +61,62 @@ body {
     transform: translate(0, 50vh);
   }
   100% {
-    transform: translate(0, 10vh);
+    transform: translate(0, 20vh);
+  }
+}
+
+.result {
+  display: none;
+  width: 2000px;
+  height: 200px;
+  color: white; /* Fiery orange color */
+  font-size: 50px;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  text-shadow: 3px 3px 5px rgba(255, 255, 255, 0.7);
+  position: absolute;
+  left: -17%;
+  top: 200px;
+}
+.button {
+  position: absolute;
+  left: 45%;
+  top: 300px;
+  display: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  text-align: center;
+  text-decoration: none;
+  color: #fff;
+  background: linear-gradient(
+    to bottom,
+    #333,
+    #000
+  ); /* Gradient background from dark gray to black */
+  border: 1px solid #000; /* Border color */
+  border-radius: 5px; /* Rounded corners */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  transition: background 0.3s, transform 0.2s; /* Smooth transition */
+}
+
+.button:hover {
+  background: linear-gradient(
+    to bottom,
+    #000,
+    #333
+  ); /* Reverse gradient on hover */
+  transform: scale(1.05); /* Scale effect on hover */
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect on hover */
+}
+@keyframes blink {
+  0% {
+    border-color: #ff0000; /* Red */
+  }
+  50% {
+    border-color: #ffffff; /* White */
+  }
+  100% {
+    border-color: #ff0000; /* Red */
   }
 }
