@@ -2,17 +2,27 @@ body {
   background-color: black;
 }
 .nonGame {
+  width: 100%;
   position: absolute;
-  left: -10vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
 }
 .ball {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 100px;
   height: 200px;
   width: 200px;
   border-radius: 50%;
   background-color: blue;
   box-shadow: 0 0 50px 30px blue;
   position: absolute;
-  animation: move 2s linear infinite, shineBorder 2s linear infinite; /* Multiple animations */
+  text-align: center;
+
+  animation: move 2s linear infinite;
 }
 
 /* .time styles */
@@ -23,7 +33,7 @@ body {
   background-color: #f5f5f5; /* Light gray background */
   overflow: hidden;
   position: relative;
-  top: 7vh;
+  top: -5vh;
   border-radius: 10px; /* Rounded corners */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Soft box shadow */
 }
@@ -40,28 +50,27 @@ body {
 
 /* .score styles */
 .score {
-  display: inline;
+  display: block;
+  text-align: center;
   width: 1000px;
   height: 100px;
-  margin-left: 100px;
   position: relative;
   color: #ffffff; /* White text color */
   font-size: 2em; /* Larger font size */
   font-family: "Helvetica Neue", sans-serif; /* Example font family */
   font-weight: bold; /* Bold text */
-  left: 45%;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Text shadow for better readability */
 }
 
 @keyframes move {
   0% {
-    transform: translate(0, 100vh);
+    transform: translateY(100vh) rotate(0deg);
   }
   50% {
-    transform: translate(0, 50vh);
+    transform: translateY(50vh) rotate(180deg);
   }
   100% {
-    transform: translate(0, 20vh);
+    transform: translateY(20vh) rotate(360deg);
   }
 }
 
@@ -76,13 +85,15 @@ body {
   text-align: center;
   text-shadow: 3px 3px 5px rgba(255, 255, 255, 0.7);
   position: absolute;
-  left: -17%;
-  top: 200px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center; /* Center text horizontally */
+  margin-top: 20px; /* Add margin for spacing */
 }
+
 .button {
   position: absolute;
-  left: 45%;
-  top: 300px;
   display: none;
   padding: 10px 20px;
   font-size: 16px;
@@ -98,6 +109,9 @@ body {
   border-radius: 5px; /* Rounded corners */
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
   transition: background 0.3s, transform 0.2s; /* Smooth transition */
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .button:hover {
@@ -106,7 +120,6 @@ body {
     #000,
     #333
   ); /* Reverse gradient on hover */
-  transform: scale(1.05); /* Scale effect on hover */
   box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect on hover */
 }
 @keyframes blink {
@@ -118,5 +131,48 @@ body {
   }
   100% {
     border-color: #ff0000; /* Red */
+  }
+}
+
+@keyframes changeColor {
+  0% {
+    background-color: #ff0000; /* Red */
+  }
+  25% {
+    background-color: #00ff00; /* Green */
+  }
+  50% {
+    background-color: #0000ff; /* Blue */
+  }
+  75% {
+    background-color: #ff00ff; /* Magenta */
+  }
+  100% {
+    background-color: #ffff00; /* Yellow */
+  }
+}
+@keyframes changeColor2 {
+  0%,
+  10% {
+    background-color: #000; /* Black */
+  }
+  20%,
+  30% {
+    background-color: #111; /* Dark Gray */
+  }
+  40%,
+  50% {
+    background-color: #222; /* Gray */
+  }
+  60%,
+  70% {
+    background-color: #333; /* Light Gray */
+  }
+  80%,
+  90% {
+    background-color: #ccc; /* Lighter Gray */
+  }
+  100% {
+    background-color: #fff; /* White */
   }
 }

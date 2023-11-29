@@ -18,26 +18,23 @@ $(window).on("load", function () {
       ")";
 
     // Create a new ball element and append it to the body
-    $("<div class='ball'></div>")
+    $("<div class='ball'><span class='fa fa-star star'></span></div>")
       .appendTo(".game")
       .css({
         left: randomX + "px",
-        backgroundColor: shadowColor,
-        boxShadow: "0 0 50px 30px " + shadowColor,
+        color: shadowColor,
+        backgroundColor: "transparent",
+        boxShadow: "0 0 30px 15px " + shadowColor,
       });
 
     // Check if count is greater than or equal to 5 and adjust the width
     if (count >= 5) {
-      $(".ball").css(
-        "animation",
-        "move 1s linear infinite,  shineBorder 2s linear infinite"
-      );
+      $(".ball").css("animation", "move 1s linear infinite");
+      $("body").css("animation", "changeColor2 0.5s infinite alternate");
     }
     if (count >= 10) {
-      $(".ball").css(
-        "animation",
-        "move 0.7s linear infinite, shineBorder 1s linear infinite"
-      );
+      $(".ball").css("animation", "move 0.7s linear infinite");
+      $("body").css("animation", "changeColor 5s infinite alternate");
     }
   }, 1000);
 
@@ -55,15 +52,18 @@ $(window).on("load", function () {
 
     // Increase the size of the ball
     ball.css({
-      width: "350px",
-      height: "350px",
+      width: "100px",
+      height: "100px",
       opacity: "0.3",
+      color: "yellow",
+      fontSize: "200px",
+      textShadow: "0 0 100px 60px yellow",
     });
 
     // Hide the ball after 300 milliseconds
     setTimeout(function () {
       ball.css("display", "none");
-    }, 100);
+    }, 150);
 
     count++;
 
