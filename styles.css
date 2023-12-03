@@ -5,13 +5,15 @@ body {
 }
 .introduction {
   width: 50%;
-  height: 50vh;
+  height: 30vh;
   background-color: #000000; /* Black background */
   color: #ffffff; /* White text color */
   position: absolute;
   left: 23%;
   top: 20%;
+  font-size:25px;
   border: 2px solid #ffffff; /* White border for added elegance */
+  border-radius: 10px;
   padding: 20px; /* Add padding for better spacing */
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.2); /* Subtle white shadow */
 }
@@ -22,8 +24,8 @@ body {
 }
 .beginButton {
   position: absolute;
-  left: 45%;
-  top: 50vh;
+  left: 44%;
+  top: 40vh;
   background-color: #000; /* Black background */
   color: #fff; /* White text */
   border: 2px solid #fff; /* White border */
@@ -35,8 +37,8 @@ body {
 }
 
 .beginButton:hover {
-  background-color: #fff; /* White background on hover */
-  color: #000; /* Black text on hover */
+  color:yellow;
+  border: 1px solid yellow;
 }
 
 .beforeGame {
@@ -135,7 +137,7 @@ body {
   align-items: center;
   justify-content: center;
   text-align: center;
-  text-shadow: 3px 3px 5px rgba(255, 255, 255, 0.7);
+  text-shadow: 3px 3px 5px grey;
   position: absolute;
   top: 50vh;
   margin-top: -100px;
@@ -160,7 +162,7 @@ body {
   ); /* Gradient background from dark gray to black */
   border: 1px solid #000; /* Border color */
   border-radius: 5px; /* Rounded corners */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+  box-shadow: 0 0 10px yellow;
   transition: background 0.3s, transform 0.2s; /* Smooth transition */
   top: 55vh;
   left: 50%;
@@ -173,7 +175,7 @@ body {
     #000,
     #333
   ); /* Reverse gradient on hover */
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Enhanced shadow effect on hover */
+  box-shadow: 0 0 20px yellow;
 }
 @keyframes blink {
   0% {

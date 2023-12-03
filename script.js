@@ -2,6 +2,21 @@ $(window).on("load", function () {
   let count = 0;
   var ballInterval;
 
+  let red = 0;
+  let green = 0;
+  let blue = 0;
+
+  // Function to update background color
+  function updateBackgroundColor() {
+    // Increase each color component
+    red = (red + 10) % 256;
+    green = (green + 10) % 256;
+    blue = (blue + 10) % 256;
+
+    // Set the new background color
+    $("body").css("background-color", `rgb(${red}, ${green}, ${blue})`);
+  }
+
   var introductionText =
     "Your task is simple: click on the stars rising up from the ground to collect them. Each star adds a bit of brightness to the night sky, and with every click, the stars gather together again, forming a super bright starry array.";
   var words = introductionText.split(" ");
@@ -20,7 +35,7 @@ $(window).on("load", function () {
       Math.random() * (windowHeight - 2 * minDistanceFromEdge) +
       minDistanceFromEdge;
 
-    var degreeStar = Math.random() * 360;
+    var degreeStar = Math.ceil(Math.random() * 360);
 
     $("<div class='stars'><span class='fa fa-star star'></span></div>")
       .appendTo(".beforeGame")
@@ -53,7 +68,12 @@ $(window).on("load", function () {
       $("<button class=beginButton>Lets begin</button>").appendTo(
         ".beforeGame"
       );
-
+      $(".introduction").css(
+        "boxShadow",
+        "0 0 30px yellow",
+        "border",
+        "3px solid yellow"
+      );
       $(".beginButton").on("click", function () {
         $(".beforeGame").css("display", "none");
         $(".game").css("display", "block");
@@ -126,8 +146,10 @@ $(window).on("load", function () {
 
           count++;
 
+          updateBackgroundColor();
+
           // Update the score
-          $(".score").html("Count now is: " + count);
+          $(".score").html("Collected Stars: " + count);
         });
 
         setTimeout(function () {
@@ -135,7 +157,7 @@ $(window).on("load", function () {
 
           setTimeout(function () {
             $(".result").html(
-              "<div>Time is over. Your score is : " + count + "</div>"
+              "<div>Time is over. You have collected " + count + " stars.</div>"
             );
             $(".result").fadeIn(2000);
             $(".result").css("display", "block");
