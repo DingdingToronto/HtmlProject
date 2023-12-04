@@ -4,14 +4,19 @@ body {
   position: relative;
 }
 .introduction {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
   width: 50%;
-  height: 30vh;
+  height: auto;
   background-color: #000000; /* Black background */
   color: #ffffff; /* White text color */
   position: absolute;
   left: 23%;
   top: 20%;
-  font-size:25px;
+  font-size: 25px;
   border: 2px solid #ffffff; /* White border for added elegance */
   border-radius: 10px;
   padding: 20px; /* Add padding for better spacing */
@@ -23,9 +28,6 @@ body {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.3); /* Darker shadow on hover */
 }
 .beginButton {
-  position: absolute;
-  left: 44%;
-  top: 40vh;
   background-color: #000; /* Black background */
   color: #fff; /* White text */
   border: 2px solid #fff; /* White border */
@@ -37,7 +39,7 @@ body {
 }
 
 .beginButton:hover {
-  color:yellow;
+  color: yellow;
   border: 1px solid yellow;
 }
 
@@ -129,9 +131,13 @@ body {
 }
 
 .result {
-  display: none;
-  width: 2000px;
-  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 80%;
+  height: auto;
   color: white; /* Fiery orange color */
   font-size: 50px;
   align-items: center;
@@ -139,7 +145,7 @@ body {
   text-align: center;
   text-shadow: 3px 3px 5px grey;
   position: absolute;
-  top: 50vh;
+  top: 30vh;
   margin-top: -100px;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -148,8 +154,7 @@ body {
 }
 
 .button {
-  position: absolute;
-  display: none;
+  display: flex;
   padding: 10px 20px;
   font-size: 16px;
   text-align: center;
@@ -164,9 +169,6 @@ body {
   border-radius: 5px; /* Rounded corners */
   box-shadow: 0 0 10px yellow;
   transition: background 0.3s, transform 0.2s; /* Smooth transition */
-  top: 55vh;
-  left: 50%;
-  transform: translate(-50%, -50%);
 }
 
 .button:hover {

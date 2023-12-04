@@ -66,7 +66,7 @@ $(window).on("load", function () {
     } else {
       clearInterval(intervalId); // Stop the setInterval once all words are displayed
       $("<button class=beginButton>Lets begin</button>").appendTo(
-        ".beforeGame"
+        ".introduction"
       );
       $(".introduction").css(
         "boxShadow",
@@ -160,19 +160,21 @@ $(window).on("load", function () {
               "<div>Time is over. You have collected " + count + " stars.</div>"
             );
             $(".result").fadeIn(2000);
-            $(".result").css("display", "block");
             setTimeout(function () {
-              $(".button").fadeIn(1000);
+              $("<button class=button>Try Agiain?</button>").appendTo(
+                ".result"
+              );
+              $(".button").on("click", function () {
+                location.reload();
+              });
             }, 1000);
-          }, 200);
+          }, 1000);
         }, 20000);
         //time control
         setInterval(function () {
           $(".timesheet").css("left", "-=5px");
         }, 100);
-        $(".button").on("click", function () {
-          location.reload();
-        });
+
         setTimeout(function () {
           $(".timesheet").css("backgroundColor", "#f39c12");
         }, 10000);
