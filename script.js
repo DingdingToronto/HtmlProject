@@ -155,11 +155,12 @@ $(window).on("load", function () {
         setTimeout(function () {
           $(".game").css("display", "none");
 
+          $(".result").css("display", "flex");
           setTimeout(function () {
+            $(".result").css("animation", "resultShow 1s linear");
             $(".result").html(
               "<div>Time is over. You have collected " + count + " stars.</div>"
             );
-            $(".result").fadeIn(2000);
             setTimeout(function () {
               $("<button class=button>Try Agiain?</button>").appendTo(
                 ".result"

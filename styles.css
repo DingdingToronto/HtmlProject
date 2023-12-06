@@ -131,7 +131,7 @@ body {
 }
 
 .result {
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -207,5 +207,17 @@ body {
   100% {
     opacity: 0.1;
     transform: scale(0.5);
+  }
+}
+
+@keyframes resultShow {
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
   }
 }
